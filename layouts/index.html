@@ -15,6 +15,12 @@
 
 <div class="flex-break"></div>
 
+{{ if os.FileExists "index-about.md" }}
+<div class="markdown-content">
+    {{ readFile "index-about.md" | markdownify }}
+</div>
+{{ end }}
+
 {{ if isset .Site.Params "socialicons" }}
 <section class="social-icons">
     <ul class="social-icons-list">
@@ -27,12 +33,6 @@
         {{ end }}
     </ul>
 </section>
-{{ end }}
-
-{{ if os.FileExists "index-about.md" }}
-<div class="markdown-content">
-    {{ readFile "index-about.md" | markdownify }}
-</div>
 {{ end }}
 
 {{ if isset .Site.Params "showpostsonhomepage" }}
